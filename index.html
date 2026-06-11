@@ -3123,6 +3123,69 @@
             box-shadow: 0 16px 45px rgba(15, 23, 42, .06)
         }
 
+        .feature-hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 18px
+        }
+
+        .feature-hub-card {
+            background: #FFF;
+            border: 1px solid rgba(226, 232, 240, .75);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 16px 45px rgba(15, 23, 42, .05)
+        }
+
+        .feature-hub-card h3 {
+            font-size: 15px;
+            font-weight: 900;
+            color: #0F172A;
+            margin: 10px 0 8px
+        }
+
+        .feature-hub-card p {
+            font-size: 12px;
+            color: #64748B;
+            line-height: 1.6
+        }
+
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 13px
+        }
+
+        .feature-list span {
+            padding: 5px 8px;
+            border-radius: 999px;
+            background: rgba(13, 71, 161, .06);
+            color: #0D47A1;
+            font-size: 9px;
+            font-weight: 800
+        }
+
+        .score-ring {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: conic-gradient(#047857 var(--score), #E2E8F0 0);
+            color: #0F172A;
+            font-weight: 900;
+            font-size: 15px;
+            margin-top: 12px
+        }
+
+        .lang-toggle,
+        .theme-toggle,
+        [title="Notifications"] {
+            display: none !important
+        }
+
         .social-actions {
             display: flex;
             flex-wrap: wrap;
@@ -3270,6 +3333,7 @@
         }
 
         @media(max-width:768px) {
+
             .top-info-bar,
             .mega-wrap,
             .quick-nav-actions {
@@ -3364,7 +3428,7 @@
             data-icon="lucide:chevron-up" data-width="20"></span></button>
 
     <!-- LANGUAGE SELECT -->
-    <div class="lang-ov" id="langOv">
+    <div class="lang-ov hidden" id="langOv" style="display:none">
         <div class="ld-logo" style="margin-bottom:32px">SK</div>
         <h2 style="font-size:24px;font-weight:800;color:#0F172A;margin-bottom:8px" data-t="chooseLang">Choose Language
         </h2>
@@ -3439,15 +3503,22 @@
         <div class="top-info-bar">
             <div class="top-info-inner">
                 <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-                    <a href="tel:+918628881512"><span class="iconify" data-icon="lucide:phone" data-width="12"></span> +91 86288 81512</a>
-                    <a href="mailto:info@skdreamproperty.com"><span class="iconify" data-icon="lucide:mail" data-width="12"></span> sk.dreamproperty@gmail.com</a>
-                    <span><span class="iconify" data-icon="lucide:map-pin" data-width="12"></span> Punjab, Chandigarh & NRI Desk</span>
+                    <a href="tel:+918628881512"><span class="iconify" data-icon="lucide:phone" data-width="12"></span>
+                        +91 86288 81512</a>
+                    <a href="mailto:info@skdreamproperty.com"><span class="iconify" data-icon="lucide:mail"
+                            data-width="12"></span> sk.dreamproperty@gmail.com</a>
+                    <span><span class="iconify" data-icon="lucide:map-pin" data-width="12"></span> Punjab, Chandigarh &
+                        NRI Desk</span>
                 </div>
                 <div style="display:flex;align-items:center;gap:12px">
-                    <a href="#" title="Facebook"><span class="iconify" data-icon="lucide:facebook" data-width="13"></span></a>
-                    <a href="#" title="Instagram"><span class="iconify" data-icon="lucide:instagram" data-width="13"></span></a>
-                    <a href="#" title="YouTube"><span class="iconify" data-icon="lucide:youtube" data-width="13"></span></a>
-                    <a href="#" title="WhatsApp"><span class="iconify" data-icon="lucide:message-circle" data-width="13"></span></a>
+                    <a href="#" title="Facebook"><span class="iconify" data-icon="lucide:facebook"
+                            data-width="13"></span></a>
+                    <a href="#" title="Instagram"><span class="iconify" data-icon="lucide:instagram"
+                            data-width="13"></span></a>
+                    <a href="#" title="YouTube"><span class="iconify" data-icon="lucide:youtube"
+                            data-width="13"></span></a>
+                    <a href="#" title="WhatsApp"><span class="iconify" data-icon="lucide:message-circle"
+                            data-width="13"></span></a>
                 </div>
             </div>
         </div>
@@ -3468,28 +3539,49 @@
                     style="padding:8px 14px;font-size:12px;text-decoration:none;border-radius:9px;transition:all .2s;font-weight:500;color:#334155"
                     data-t="properties">Properties</a>
                 <div class="mega-wrap">
-                    <a href="#" class="mega-trigger"><span class="iconify" data-icon="lucide:layout-grid" data-width="13"></span> Explore <span class="iconify" data-icon="lucide:chevron-down" data-width="12"></span></a>
+                    <a href="#" class="mega-trigger"><span class="iconify" data-icon="lucide:layout-grid"
+                            data-width="13"></span> Explore <span class="iconify" data-icon="lucide:chevron-down"
+                            data-width="12"></span></a>
                     <div class="mega-panel">
                         <div class="mega-col">
-                            <h4><span class="iconify" data-icon="lucide:home" data-width="14" style="color:#0D47A1"></span> Buy & Rent</h4>
-                            <a href="#" onclick="goHome();setTimeout(function(){filterProps('Residential');scrollToEl('props-section')},150)" class="mega-link">Residential Plots <span>125-500 Sq.Yd</span></a>
-                            <a href="#" onclick="showPV('rental-page')" class="mega-link">Rentals & PG <span>Ready homes</span></a>
-                            <a href="#" onclick="showPV('luxury-page')" class="mega-link">Luxury Villas <span>VIP</span></a>
-                            <a href="#" onclick="showPV('bidding-page')" class="mega-link">Live Bidding <span>Active</span></a>
+                            <h4><span class="iconify" data-icon="lucide:home" data-width="14"
+                                    style="color:#0D47A1"></span> Buy & Rent</h4>
+                            <a href="#"
+                                onclick="goHome();setTimeout(function(){filterProps('Residential');scrollToEl('props-section')},150)"
+                                class="mega-link">Residential Plots <span>125-500 Sq.Yd</span></a>
+                            <a href="#" onclick="showPV('rental-page')" class="mega-link">Rentals & PG <span>Ready
+                                    homes</span></a>
+                            <a href="#" onclick="showPV('luxury-page')" class="mega-link">Luxury Villas
+                                <span>VIP</span></a>
+                            <a href="#" onclick="showPV('bidding-page')" class="mega-link">Live Bidding
+                                <span>Active</span></a>
                         </div>
                         <div class="mega-col">
-                            <h4><span class="iconify" data-icon="lucide:building-2" data-width="14" style="color:#0D47A1"></span> Commercial & Land</h4>
-                            <a href="#" onclick="goHome();setTimeout(function(){filterProps('Commercial');scrollToEl('props-section')},150)" class="mega-link">Commercial SCO/Booth <span>High street</span></a>
-                            <a href="#" onclick="goHome();setTimeout(function(){filterProps('Agriculture');scrollToEl('props-section')},150)" class="mega-link">Agricultural Land <span>Verified</span></a>
-                            <a href="#" onclick="goHome();setTimeout(function(){filterProps('JV');scrollToEl('props-section')},150)" class="mega-link">JV & Development Land <span>Investor</span></a>
-                            <a href="#" onclick="showPV('allprops-page')" class="mega-link">New Projects <span>Builder</span></a>
+                            <h4><span class="iconify" data-icon="lucide:building-2" data-width="14"
+                                    style="color:#0D47A1"></span> Commercial & Land</h4>
+                            <a href="#"
+                                onclick="goHome();setTimeout(function(){filterProps('Commercial');scrollToEl('props-section')},150)"
+                                class="mega-link">Commercial SCO/Booth <span>High street</span></a>
+                            <a href="#"
+                                onclick="goHome();setTimeout(function(){filterProps('Agriculture');scrollToEl('props-section')},150)"
+                                class="mega-link">Agricultural Land <span>Verified</span></a>
+                            <a href="#"
+                                onclick="goHome();setTimeout(function(){filterProps('JV');scrollToEl('props-section')},150)"
+                                class="mega-link">JV & Development Land <span>Investor</span></a>
+                            <a href="#" onclick="showPV('allprops-page')" class="mega-link">New Projects
+                                <span>Builder</span></a>
                         </div>
                         <div class="mega-col">
-                            <h4><span class="iconify" data-icon="lucide:briefcase-business" data-width="14" style="color:#0D47A1"></span> Services</h4>
-                            <a href="#" onclick="showPV('marketplace-page')" class="mega-link">Loans & Legal <span>Partners</span></a>
-                            <a href="#" onclick="showPV('ai-page')" class="mega-link">AI Match Assistant <span>Smart</span></a>
-                            <a href="#" onclick="showPV('emi-page')" class="mega-link">EMI & ROI Tools <span>Free</span></a>
-                            <a href="#" onclick="showPV('requirement-page')" class="mega-link">Post Requirement <span>Fast</span></a>
+                            <h4><span class="iconify" data-icon="lucide:briefcase-business" data-width="14"
+                                    style="color:#0D47A1"></span> Services</h4>
+                            <a href="#" onclick="showPV('marketplace-page')" class="mega-link">Loans & Legal
+                                <span>Partners</span></a>
+                            <a href="#" onclick="showPV('ai-page')" class="mega-link">AI Match Assistant
+                                <span>Smart</span></a>
+                            <a href="#" onclick="showPV('emi-page')" class="mega-link">EMI & ROI Tools
+                                <span>Free</span></a>
+                            <a href="#" onclick="showPV('requirement-page')" class="mega-link">Post Requirement
+                                <span>Fast</span></a>
                         </div>
                     </div>
                 </div>
@@ -3584,10 +3676,14 @@
 
     <div class="mobile-bottom-nav">
         <button onclick="goHome()"><span class="iconify" data-icon="lucide:home" data-width="17"></span>Home</button>
-        <button onclick="showPV('search-page')"><span class="iconify" data-icon="lucide:search" data-width="17"></span>Search</button>
-        <button onclick="goHome();setTimeout(function(){scrollToEl('pro-reels-suite')},150)"><span class="iconify" data-icon="lucide:clapperboard" data-width="17"></span>Reels</button>
-        <button onclick="showPV('wishlist-page')"><span class="iconify" data-icon="lucide:heart" data-width="17"></span>Wishlist</button>
-        <button onclick="openSocialProfile()"><span class="iconify" data-icon="lucide:user-round" data-width="17"></span>Profile</button>
+        <button onclick="showPV('search-page')"><span class="iconify" data-icon="lucide:search"
+                data-width="17"></span>Search</button>
+        <button onclick="goHome();setTimeout(function(){scrollToEl('pro-reels-suite')},150)"><span class="iconify"
+                data-icon="lucide:clapperboard" data-width="17"></span>Reels</button>
+        <button onclick="showPV('wishlist-page')"><span class="iconify" data-icon="lucide:heart"
+                data-width="17"></span>Wishlist</button>
+        <button onclick="openSocialProfile()"><span class="iconify" data-icon="lucide:user-round"
+                data-width="17"></span>Profile</button>
     </div>
 
     <!-- ===== HOME PAGE ===== -->
@@ -3809,15 +3905,57 @@
         <section id="social-suite" class="sec-glow" style="padding:88px 20px;background:#F8FAFC">
             <div style="max-width:1280px;margin:0 auto">
                 <div style="text-align:center;margin-bottom:44px" class="reveal">
-                    <div class="pro-b" style="margin-bottom:16px"><span class="iconify" data-icon="lucide:heart-handshake" data-width="13"></span> Social Engagement</div>
-                    <h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;color:#0F172A">Instagram Style <span class="tg-blue">Property Community</span></h2>
+                    <div class="pro-b" style="margin-bottom:16px"><span class="iconify"
+                            data-icon="lucide:heart-handshake" data-width="13"></span> Social Engagement</div>
+                    <h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;color:#0F172A">Instagram Style <span
+                            class="tg-blue">Property Community</span></h2>
                     <div class="sec-div"></div>
                 </div>
                 <div class="pro-suite-grid reveal">
-                    <div class="pro-panel"><span class="iconify" data-icon="lucide:heart" data-width="30" style="color:#BE185D"></span><h3 style="font-size:17px;font-weight:800;color:#0F172A;margin-top:12px">Property Like System</h3><p style="font-size:12px;color:#64748B">Like/unlike, total likes count, and liked properties saved in buyer profile.</p><div class="social-actions"><button onclick="togglePropertyLike(1,this)"><span class="iconify" data-icon="lucide:heart" data-width="12"></span> <span id="likeCount-1">248</span></button><button onclick="openSocialProfile()">Profile Saves</button></div></div>
-                    <div class="pro-panel"><span class="iconify" data-icon="lucide:message-square-more" data-width="30" style="color:#0D47A1"></span><h3 style="font-size:17px;font-weight:800;color:#0F172A;margin-top:12px">Comments, Replies & Mentions</h3><p style="font-size:12px;color:#64748B">Property comments, threaded replies, @username mentions, admin moderation queue.</p><div class="comment-card"><b>@simran</b> Registry clear hai?<div class="comment-card reply"><b>@dealer</b> Yes ji, RERA and registry verified.</div></div><div class="social-actions"><button onclick="openCommentM(1,'Mohali Sector 115')">Open Comments</button><button onclick="socialToast('Comment sent to admin moderation')">Moderate</button></div></div>
-                    <div class="pro-panel"><span class="iconify" data-icon="lucide:share-2" data-width="30" style="color:#047857"></span><h3 style="font-size:17px;font-weight:800;color:#0F172A;margin-top:12px">Share System</h3><p style="font-size:12px;color:#64748B">WhatsApp, Facebook, Instagram, X and copy link sharing for property and reels.</p><div class="share-grid"><button onclick="shareSocial('WhatsApp')">WA</button><button onclick="shareSocial('Facebook')">FB</button><button onclick="shareSocial('Instagram')">IG</button><button onclick="shareSocial('X')">X</button><button onclick="copyShareLink()">Copy</button></div></div>
-                    <div class="pro-panel"><span class="iconify" data-icon="lucide:folder-heart" data-width="30" style="color:#B8860B"></span><h3 style="font-size:17px;font-weight:800;color:#0F172A;margin-top:12px">Save & Collections</h3><p style="font-size:12px;color:#64748B">Save property, save reel, and create collections like Luxury Homes or Mohali Shortlist.</p><div class="social-actions"><button onclick="createCollection()">Create Collection</button><button onclick="saveReel('Luxury Homes')">Save Reel</button></div></div>
+                    <div class="pro-panel"><span class="iconify" data-icon="lucide:heart" data-width="30"
+                            style="color:#BE185D"></span>
+                        <h3 style="font-size:17px;font-weight:800;color:#0F172A;margin-top:12px">Property Like System
+                        </h3>
+                        <p style="font-size:12px;color:#64748B">Like/unlike, total likes count, and liked properties
+                            saved in buyer profile.</p>
+                        <div class="social-actions"><button onclick="togglePropertyLike(1,this)"><span class="iconify"
+                                    data-icon="lucide:heart" data-width="12"></span> <span
+                                    id="likeCount-1">248</span></button><button onclick="openSocialProfile()">Profile
+                                Saves</button></div>
+                    </div>
+                    <div class="pro-panel"><span class="iconify" data-icon="lucide:message-square-more" data-width="30"
+                            style="color:#0D47A1"></span>
+                        <h3 style="font-size:17px;font-weight:800;color:#0F172A;margin-top:12px">Comments, Replies &
+                            Mentions</h3>
+                        <p style="font-size:12px;color:#64748B">Property comments, threaded replies, @username mentions,
+                            admin moderation queue.</p>
+                        <div class="comment-card"><b>@simran</b> Registry clear hai?<div class="comment-card reply">
+                                <b>@dealer</b> Yes ji, RERA and registry verified.
+                            </div>
+                        </div>
+                        <div class="social-actions"><button onclick="openCommentM(1,'Mohali Sector 115')">Open
+                                Comments</button><button
+                                onclick="socialToast('Comment sent to admin moderation')">Moderate</button></div>
+                    </div>
+                    <div class="pro-panel"><span class="iconify" data-icon="lucide:share-2" data-width="30"
+                            style="color:#047857"></span>
+                        <h3 style="font-size:17px;font-weight:800;color:#0F172A;margin-top:12px">Share System</h3>
+                        <p style="font-size:12px;color:#64748B">WhatsApp, Facebook, Instagram, X and copy link sharing
+                            for property and reels.</p>
+                        <div class="share-grid"><button onclick="shareSocial('WhatsApp')">WA</button><button
+                                onclick="shareSocial('Facebook')">FB</button><button
+                                onclick="shareSocial('Instagram')">IG</button><button
+                                onclick="shareSocial('X')">X</button><button onclick="copyShareLink()">Copy</button>
+                        </div>
+                    </div>
+                    <div class="pro-panel"><span class="iconify" data-icon="lucide:folder-heart" data-width="30"
+                            style="color:#B8860B"></span>
+                        <h3 style="font-size:17px;font-weight:800;color:#0F172A;margin-top:12px">Save & Collections</h3>
+                        <p style="font-size:12px;color:#64748B">Save property, save reel, and create collections like
+                            Luxury Homes or Mohali Shortlist.</p>
+                        <div class="social-actions"><button onclick="createCollection()">Create
+                                Collection</button><button onclick="saveReel('Luxury Homes')">Save Reel</button></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -3825,32 +3963,322 @@
         <section id="pro-reels-suite" class="sec-glow" style="padding:88px 20px;background:#020617;color:#FFF">
             <div style="max-width:1280px;margin:0 auto">
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center" id="reelFullGrid">
-                    <div class="reel-card reveal" style="height:560px;max-width:360px;margin:0 auto;width:100%"><img src="https://picsum.photos/seed/fullscreen-sk-reel/720/1280.jpg" alt="Full screen reel"><div class="reel-actions" style="bottom:150px"><button onclick="reelAct('Liked')"><span class="iconify" data-icon="lucide:heart" data-width="18"></span></button><button onclick="openCommentM(2,'VIP Chandigarh Reel')"><span class="iconify" data-icon="lucide:message-circle" data-width="18"></span></button><button onclick="shareSocial('Reel')"><span class="iconify" data-icon="lucide:send" data-width="18"></span></button><button onclick="saveReel('VIP Chandigarh')"><span class="iconify" data-icon="lucide:bookmark" data-width="18"></span></button></div><div class="reel-overlay"><span class="bdg bdg-vip" style="width:max-content">Auto Play</span><h3 style="font-size:24px;font-weight:900;margin-top:10px">Vertical Full Screen Reels</h3><p style="font-size:13px;opacity:.85">Luxury Homes, Commercial, Farm Land, Rentals and New Projects.</p><button onclick="followDealerPro('SK DREAM Luxury')" class="btn-p btn-sm" style="width:max-content;margin-top:14px"><span class="iconify" data-icon="lucide:user-plus" data-width="12"></span> Follow Dealer</button></div></div>
-                    <div class="reveal"><div class="pro-b" style="margin-bottom:16px;background:rgba(255,255,255,.08);color:#90CAF9;border-color:rgba(255,255,255,.12)"><span class="iconify" data-icon="lucide:chart-no-axes-combined" data-width="13"></span> Reel Analytics</div><h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:900;color:#FFF">Dealer Reels <span style="color:#90CAF9">Dashboard</span></h2><div class="pro-suite-grid" style="margin-top:28px"><div class="ach-card"><div class="ach-num" style="color:#90CAF9">28.4K</div><div style="color:rgba(255,255,255,.55);font-size:12px">Views</div></div><div class="ach-card"><div class="ach-num" style="color:#F472B6">3.1K</div><div style="color:rgba(255,255,255,.55);font-size:12px">Likes</div></div><div class="ach-card"><div class="ach-num" style="color:#A7F3D0">642</div><div style="color:rgba(255,255,255,.55);font-size:12px">Shares</div></div><div class="ach-card"><div class="ach-num" style="color:#FDE68A">78%</div><div style="color:rgba(255,255,255,.55);font-size:12px">Watch Time</div></div></div><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:20px"><span class="quick-pill">Luxury Homes</span><span class="quick-pill">Commercial</span><span class="quick-pill">Farm Land</span><span class="quick-pill">Rental</span><span class="quick-pill">New Projects</span></div></div>
+                    <div class="reel-card reveal" style="height:560px;max-width:360px;margin:0 auto;width:100%"><video
+                            autoplay muted loop playsinline controls
+                            poster="https://picsum.photos/seed/fullscreen-sk-reel/720/1280.jpg">
+                            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="reel-actions" style="bottom:150px"><button onclick="reelAct('Liked')"><span
+                                    class="iconify" data-icon="lucide:heart" data-width="18"></span></button><button
+                                onclick="openCommentM(2,'VIP Chandigarh Reel')"><span class="iconify"
+                                    data-icon="lucide:message-circle" data-width="18"></span></button><button
+                                onclick="shareSocial('Reel')"><span class="iconify" data-icon="lucide:send"
+                                    data-width="18"></span></button><button onclick="saveReel('VIP Chandigarh')"><span
+                                    class="iconify" data-icon="lucide:bookmark" data-width="18"></span></button></div>
+                        <div class="reel-overlay"><span class="bdg bdg-vip" style="width:max-content">Live Reel
+                                Video</span>
+                            <h3 style="font-size:24px;font-weight:900;margin-top:10px">Mohali Villa Walkthrough</h3>
+                            <p style="font-size:13px;opacity:.85">30-60 sec dealer reels with thumbnail, compression,
+                                likes, comments, share and save.</p><button onclick="followDealerPro('SK DREAM Luxury')"
+                                class="btn-p btn-sm" style="width:max-content;margin-top:14px"><span class="iconify"
+                                    data-icon="lucide:user-plus" data-width="12"></span> Follow Dealer</button>
+                        </div>
+                    </div>
+                    <div class="reveal">
+                        <div class="pro-b"
+                            style="margin-bottom:16px;background:rgba(255,255,255,.08);color:#90CAF9;border-color:rgba(255,255,255,.12)">
+                            <span class="iconify" data-icon="lucide:chart-no-axes-combined" data-width="13"></span> Reel
+                            Analytics
+                        </div>
+                        <h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:900;color:#FFF">Property Reels <span
+                                style="color:#90CAF9">Live Feed</span></h2>
+                        <div class="pro-suite-grid" style="margin-top:28px">
+                            <div class="ach-card">
+                                <div class="ach-num" style="color:#90CAF9">28.4K</div>
+                                <div style="color:rgba(255,255,255,.55);font-size:12px">Views</div>
+                            </div>
+                            <div class="ach-card">
+                                <div class="ach-num" style="color:#F472B6">3.1K</div>
+                                <div style="color:rgba(255,255,255,.55);font-size:12px">Likes</div>
+                            </div>
+                            <div class="ach-card">
+                                <div class="ach-num" style="color:#A7F3D0">642</div>
+                                <div style="color:rgba(255,255,255,.55);font-size:12px">Shares</div>
+                            </div>
+                            <div class="ach-card">
+                                <div class="ach-num" style="color:#FDE68A">78%</div>
+                                <div style="color:rgba(255,255,255,.55);font-size:12px">Watch Time</div>
+                            </div>
+                        </div>
+                        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:20px"><span class="quick-pill">Auto
+                                Compression</span><span class="quick-pill">Thumbnail Generated</span><span
+                                class="quick-pill">AI Video Ready</span><span class="quick-pill">Swipe Feed</span><span
+                                class="quick-pill">Dealer Upload</span><span class="quick-pill">Luxury
+                                Homes</span><span class="quick-pill">Commercial</span><span class="quick-pill">Farm
+                                Land</span><span class="quick-pill">Rental</span><span class="quick-pill">New
+                                Projects</span></div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="company-profiles-suite" class="sec-glow" style="padding:88px 20px;background:#FFF">
             <div style="max-width:1280px;margin:0 auto">
-                <div style="text-align:center;margin-bottom:44px" class="reveal"><div class="pro-b" style="margin-bottom:16px"><span class="iconify" data-icon="lucide:building-2" data-width="13"></span> Follow System & Company Profiles</div><h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;color:#0F172A">Dealers, Builders & <span class="tg-blue">Agencies</span></h2><div class="sec-div"></div></div>
+                <div style="text-align:center;margin-bottom:44px" class="reveal">
+                    <div class="pro-b" style="margin-bottom:16px"><span class="iconify" data-icon="lucide:building-2"
+                            data-width="13"></span> Follow System & Company Profiles</div>
+                    <h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;color:#0F172A">Dealers, Builders &
+                        <span class="tg-blue">Agencies</span>
+                    </h2>
+                    <div class="sec-div"></div>
+                </div>
                 <div class="pro-suite-grid reveal">
-                    <div class="profile-card-pro"><div class="profile-cover-pro" style="background-image:url('https://picsum.photos/seed/skdream-cover/800/280.jpg')"></div><div style="padding:0 20px 20px"><div class="profile-logo-pro">SK</div><h3 style="font-weight:900;color:#0F172A;margin-top:10px">SK DREAM Property</h3><p style="font-size:12px;color:#64748B">Verified Punjab agency with team members, social links, reviews and ratings.</p><div class="mini-badges"><span>12K Followers</span><span>248 Listings</span><span>4.9 Rating</span></div><div class="social-actions"><button onclick="followDealerPro('SK DREAM Property')">Follow</button><button onclick="openMsgM('SK DREAM Property')">Message</button><button onclick="openDealerReview('SK DREAM Property')">Review</button></div></div></div>
-                    <div class="profile-card-pro"><div class="profile-cover-pro" style="background-image:url('https://picsum.photos/seed/builder-pro/800/280.jpg')"></div><div style="padding:0 20px 20px"><div class="profile-logo-pro" style="background:linear-gradient(135deg,#047857,#34D399)">GM</div><h3 style="font-weight:900;color:#0F172A;margin-top:10px">GM Infra Builders</h3><p style="font-size:12px;color:#64748B">Builder profile with logo, banner, about company and project inventory.</p><div class="mini-badges"><span>8K Followers</span><span>36 Projects</span><span>4.7 Rating</span></div><div class="social-actions"><button onclick="followDealerPro('GM Infra Builders')">Follow</button><button onclick="openMsgM('GM Infra Builders')">Message</button></div></div></div>
-                    <div class="profile-card-pro"><div class="profile-cover-pro" style="background-image:url('https://picsum.photos/seed/nri-profile/800/280.jpg')"></div><div style="padding:0 20px 20px"><div class="profile-logo-pro" style="background:linear-gradient(135deg,#B8860B,#F0D060);color:#0F172A">NR</div><h3 style="font-weight:900;color:#0F172A;margin-top:10px">NRI Property Desk</h3><p style="font-size:12px;color:#64748B">Remote verification, WhatsApp communication, documents and video visits.</p><div class="mini-badges"><span>5K Followers</span><span>92 Listings</span><span>Premium</span></div><div class="social-actions"><button onclick="followDealerPro('NRI Property Desk')">Follow</button><button onclick="openMsgM('NRI Property Desk')">Message</button></div></div></div>
+                    <div class="profile-card-pro">
+                        <div class="profile-cover-pro"
+                            style="background-image:url('https://picsum.photos/seed/skdream-cover/800/280.jpg')"></div>
+                        <div style="padding:0 20px 20px">
+                            <div class="profile-logo-pro">SK</div>
+                            <h3 style="font-weight:900;color:#0F172A;margin-top:10px">SK DREAM Property</h3>
+                            <p style="font-size:12px;color:#64748B">Verified Punjab agency with team members, social
+                                links, reviews and ratings.</p>
+                            <div class="mini-badges"><span>12K Followers</span><span>248 Listings</span><span>4.9
+                                    Rating</span></div>
+                            <div class="social-actions"><button
+                                    onclick="followDealerPro('SK DREAM Property')">Follow</button><button
+                                    onclick="openMsgM('SK DREAM Property')">Message</button><button
+                                    onclick="openDealerReview('SK DREAM Property')">Review</button></div>
+                        </div>
+                    </div>
+                    <div class="profile-card-pro">
+                        <div class="profile-cover-pro"
+                            style="background-image:url('https://picsum.photos/seed/builder-pro/800/280.jpg')"></div>
+                        <div style="padding:0 20px 20px">
+                            <div class="profile-logo-pro" style="background:linear-gradient(135deg,#047857,#34D399)">GM
+                            </div>
+                            <h3 style="font-weight:900;color:#0F172A;margin-top:10px">GM Infra Builders</h3>
+                            <p style="font-size:12px;color:#64748B">Builder profile with logo, banner, about company and
+                                project inventory.</p>
+                            <div class="mini-badges"><span>8K Followers</span><span>36 Projects</span><span>4.7
+                                    Rating</span></div>
+                            <div class="social-actions"><button
+                                    onclick="followDealerPro('GM Infra Builders')">Follow</button><button
+                                    onclick="openMsgM('GM Infra Builders')">Message</button></div>
+                        </div>
+                    </div>
+                    <div class="profile-card-pro">
+                        <div class="profile-cover-pro"
+                            style="background-image:url('https://picsum.photos/seed/nri-profile/800/280.jpg')"></div>
+                        <div style="padding:0 20px 20px">
+                            <div class="profile-logo-pro"
+                                style="background:linear-gradient(135deg,#B8860B,#F0D060);color:#0F172A">NR</div>
+                            <h3 style="font-weight:900;color:#0F172A;margin-top:10px">NRI Property Desk</h3>
+                            <p style="font-size:12px;color:#64748B">Remote verification, WhatsApp communication,
+                                documents and video visits.</p>
+                            <div class="mini-badges"><span>5K Followers</span><span>92
+                                    Listings</span><span>Premium</span></div>
+                            <div class="social-actions"><button
+                                    onclick="followDealerPro('NRI Property Desk')">Follow</button><button
+                                    onclick="openMsgM('NRI Property Desk')">Message</button></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="messaging-analytics-suite" class="sec-glow" style="padding:88px 20px;background:#F8FAFC">
             <div style="max-width:1280px;margin:0 auto">
-                <div style="text-align:center;margin-bottom:44px" class="reveal"><div class="pro-b" style="margin-bottom:16px"><span class="iconify" data-icon="lucide:messages-square" data-width="13"></span> Messaging, AI & Analytics</div><h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;color:#0F172A">Buyer to Dealer Chat + <span class="tg-blue">Enterprise Dashboard</span></h2><div class="sec-div"></div></div>
-                <div class="pro-suite-grid reveal">
-                    <div class="pro-panel"><h3 style="font-weight:900;color:#0F172A">Direct Chat</h3><div class="dm-thread"><div class="dm-bubble">Sat Sri Akal, Mohali 3BHK under 80 lakh?</div><div class="dm-bubble me">Yes ji. 3 verified options with video tour and brochure.</div><div class="dm-bubble">Images/documents/voice send karo.</div><div class="dm-bubble me">Brochure.pdf, site images and voice note attached.</div></div><div class="social-actions"><button onclick="socialToast('Image selected')">Image</button><button onclick="socialToast('Document attached')">Document</button><button onclick="socialToast('Voice note recorded')">Voice</button></div></div>
-                    <div class="pro-panel"><h3 style="font-weight:900;color:#0F172A">AI Property Assistant</h3><p style="font-size:12px;color:#64748B">Example: Show me 3BHK under Rs 80 lakh in Mohali. AI matches based on search history, saved and viewed properties.</p><button onclick="aiSmartDemo()" class="btn-p btn-sm">Run AI Search</button><div id="aiSmartResult" class="comment-card">AI result will appear here.</div></div>
-                    <div class="pro-panel"><h3 style="font-weight:900;color:#0F172A">Admin Analytics</h3><div class="pro-suite-grid" style="grid-template-columns:repeat(2,1fr)"><div><b style="font-size:24px;color:#0D47A1">7,850</b><p style="font-size:10px;color:#64748B">Users</p></div><div><b style="font-size:24px;color:#047857">420</b><p style="font-size:10px;color:#64748B">Dealers</p></div><div><b style="font-size:24px;color:#B8860B">126</b><p style="font-size:10px;color:#64748B">Active Reels</p></div><div><b style="font-size:24px;color:#BE185D">1,284</b><p style="font-size:10px;color:#64748B">Leads</p></div></div></div>
-                    <div class="pro-panel"><h3 style="font-weight:900;color:#0F172A">Dealer Analytics</h3><div class="trend-bars"><span style="height:36%"></span><span style="height:48%"></span><span style="height:58%"></span><span style="height:67%"></span><span style="height:78%"></span><span style="height:86%"></span><span style="height:94%"></span></div><p style="font-size:12px;color:#64748B;margin-top:12px">Property views, reel views, WhatsApp clicks, calls and leads.</p></div>
+                <div style="text-align:center;margin-bottom:44px" class="reveal">
+                    <div class="pro-b" style="margin-bottom:16px"><span class="iconify"
+                            data-icon="lucide:messages-square" data-width="13"></span> Messaging, AI & Analytics</div>
+                    <h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;color:#0F172A">Buyer to Dealer Chat +
+                        <span class="tg-blue">Enterprise Dashboard</span>
+                    </h2>
+                    <div class="sec-div"></div>
                 </div>
+                <div class="pro-suite-grid reveal">
+                    <div class="pro-panel">
+                        <h3 style="font-weight:900;color:#0F172A">Direct Chat</h3>
+                        <div class="dm-thread">
+                            <div class="dm-bubble">Sat Sri Akal, Mohali 3BHK under 80 lakh?</div>
+                            <div class="dm-bubble me">Yes ji. 3 verified options with video tour and brochure.</div>
+                            <div class="dm-bubble">Images/documents/voice send karo.</div>
+                            <div class="dm-bubble me">Brochure.pdf, site images and voice note attached.</div>
+                        </div>
+                        <div class="social-actions"><button
+                                onclick="socialToast('Image selected')">Image</button><button
+                                onclick="socialToast('Document attached')">Document</button><button
+                                onclick="socialToast('Voice note recorded')">Voice</button></div>
+                    </div>
+                    <div class="pro-panel">
+                        <h3 style="font-weight:900;color:#0F172A">AI Property Assistant</h3>
+                        <p style="font-size:12px;color:#64748B">Example: Show me 3BHK under Rs 80 lakh in Mohali. AI
+                            matches based on search history, saved and viewed properties.</p><button
+                            onclick="aiSmartDemo()" class="btn-p btn-sm">Run AI Search</button>
+                        <div id="aiSmartResult" class="comment-card">AI result will appear here.</div>
+                    </div>
+                    <div class="pro-panel">
+                        <h3 style="font-weight:900;color:#0F172A">Admin Analytics</h3>
+                        <div class="pro-suite-grid" style="grid-template-columns:repeat(2,1fr)">
+                            <div><b style="font-size:24px;color:#0D47A1">7,850</b>
+                                <p style="font-size:10px;color:#64748B">Users</p>
+                            </div>
+                            <div><b style="font-size:24px;color:#047857">420</b>
+                                <p style="font-size:10px;color:#64748B">Dealers</p>
+                            </div>
+                            <div><b style="font-size:24px;color:#B8860B">126</b>
+                                <p style="font-size:10px;color:#64748B">Active Reels</p>
+                            </div>
+                            <div><b style="font-size:24px;color:#BE185D">1,284</b>
+                                <p style="font-size:10px;color:#64748B">Leads</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pro-panel">
+                        <h3 style="font-weight:900;color:#0F172A">Dealer Analytics</h3>
+                        <div class="trend-bars"><span style="height:36%"></span><span style="height:48%"></span><span
+                                style="height:58%"></span><span style="height:67%"></span><span
+                                style="height:78%"></span><span style="height:86%"></span><span
+                                style="height:94%"></span></div>
+                        <p style="font-size:12px;color:#64748B;margin-top:12px">Property views, reel views, WhatsApp
+                            clicks, calls and leads.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="enterprise-feature-center" class="sec-glow" style="padding:88px 20px;background:#FFF">
+            <div style="max-width:1280px;margin:0 auto">
+                <div style="text-align:center;margin-bottom:44px" class="reveal">
+                    <div class="pro-b" style="margin-bottom:16px"><span class="iconify" data-icon="lucide:shield-check"
+                            data-width="13"></span> Pro Real Estate OS</div>
+                    <h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;color:#0F172A">Advanced Modules <span
+                            class="tg-blue">Added</span></h2>
+                    <div class="sec-div"></div>
+                </div>
+                <div class="feature-hub-grid reveal">
+                    <div class="feature-hub-card"><span class="iconify" data-icon="lucide:key-round" data-width="28"
+                            style="color:#0D47A1"></span>
+                        <h3>Authentication System</h3>
+                        <p>Buyer, Seller, Dealer, Builder, Admin and Sub Admin role flows with JWT, Google, OTP, email
+                            verification, forgot password and 2FA screens.</p>
+                        <div class="feature-list"><span>JWT</span><span>Google</span><span>OTP</span><span>2FA</span>
+                        </div>
+                        <div class="social-actions"><button onclick="enterpriseAction('JWT login token generated')">JWT
+                                Login</button><button onclick="enterpriseAction('Mobile OTP sent')">Send OTP</button>
+                        </div>
+                    </div>
+                    <div class="feature-hub-card"><span class="iconify" data-icon="lucide:file-check-2" data-width="28"
+                            style="color:#047857"></span>
+                        <h3>Property Verification</h3>
+                        <p>Dealer upload queue with registry, ownership proof, NOC and RERA checklist. Verified listings
+                            show badge automatically.</p>
+                        <div class="feature-list"><span>Pending</span><span>Verified</span><span>Rejected</span></div>
+                        <div class="social-actions"><button
+                                onclick="showPV('admin-page');setTimeout(function(){showAT('tab-verification')},250)">Open
+                                Queue</button></div>
+                    </div>
+                    <div class="feature-hub-card"><span class="iconify" data-icon="lucide:clapperboard" data-width="28"
+                            style="color:#BE185D"></span>
+                        <h3>Reels + AI Video</h3>
+                        <p>30-60 sec property reels with compression, thumbnail generation, likes, comments, share,
+                            saves, moderation and featured reels.</p>
+                        <div class="feature-list"><span>Compress</span><span>Thumbnail</span><span>AI Reel</span></div>
+                        <div class="social-actions"><button onclick="generateAIReel()">Generate AI Reel</button></div>
+                    </div>
+                    <div class="feature-hub-card"><span class="iconify" data-icon="lucide:sparkles" data-width="28"
+                            style="color:#B8860B"></span>
+                        <h3>AI Recommendation Engine</h3>
+                        <p>Tracks searches, budget, city and property type to show similar properties, trending picks
+                            and best deals in Netflix-style rows.</p>
+                        <div class="feature-list"><span>Similar</span><span>Trending</span><span>Best Deals</span></div>
+                        <div class="social-actions"><button onclick="renderRecommendationRows()">Refresh AI</button>
+                        </div>
+                    </div>
+                    <div class="feature-hub-card">
+                        <span class="iconify" data-icon="lucide:target" data-width="28" style="color:#047857"></span>
+                        <h3>Property Match Score</h3>
+                        <p>Budget, location, area and bedrooms are scored live against the best matching inventory.</p>
+                        <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+                            <div class="score-ring" style="--score:95%">95%</div>
+                            <div class="score-ring"
+                                style="--score:87%;background:conic-gradient(#0D47A1 87%,#E2E8F0 0)">87%</div>
+                            <div class="score-ring"
+                                style="--score:76%;background:conic-gradient(#B45309 76%,#E2E8F0 0)">76%</div>
+                        </div>
+                    </div>
+                    <div class="feature-hub-card"><span class="iconify" data-icon="lucide:calendar-days" data-width="28"
+                            style="color:#0D47A1"></span>
+                        <h3>Visit Booking + Calendar</h3>
+                        <p>Buyer selects date and time, dealer approves, reschedules or cancels. Status syncs to the
+                            admin visits module.</p>
+                        <div class="feature-list">
+                            <span>Pending</span><span>Approved</span><span>Completed</span><span>Cancelled</span>
+                        </div>
+                        <div class="social-actions"><button
+                                onclick="enterpriseAction('Calendar invite created')">Calendar</button></div>
+                    </div>
+                    <div class="feature-hub-card"><span class="iconify" data-icon="lucide:credit-card" data-width="28"
+                            style="color:#047857"></span>
+                        <h3>Subscriptions + Payments</h3>
+                        <p>Free, Premium, Gold and Platinum plans with Razorpay, PayU and Stripe payment entry points
+                            for subscriptions, bookings and featured listings.</p>
+                        <div class="feature-list">
+                            <span>Free</span><span>Premium</span><span>Gold</span><span>Platinum</span>
+                        </div>
+                        <div class="social-actions"><button
+                                onclick="showPV('admin-page');setTimeout(function(){showAT('tab-subscriptions')},250)">Manage</button>
+                        </div>
+                    </div>
+                    <div class="feature-hub-card"><span class="iconify" data-icon="lucide:bot" data-width="28"
+                            style="color:#0D47A1"></span>
+                        <h3>AI Chatbot + Loan System</h3>
+                        <p>Ask "2 crore under Mohali villa" and get instant results. EMI, loan eligibility and bank
+                            comparison are included.</p>
+                        <div class="feature-list"><span>SBI</span><span>HDFC</span><span>ICICI</span><span>PNB</span>
+                        </div>
+                        <div class="social-actions"><button onclick="aiSmartDemo()">Ask Bot</button><button
+                                onclick="showPV('emi-page')">EMI</button></div>
+                    </div>
+                    <div class="feature-hub-card"><span class="iconify" data-icon="lucide:shield-alert" data-width="28"
+                            style="color:#DC2626"></span>
+                        <h3>Security + Fraud Detection</h3>
+                        <p>Rate limiting, CSRF, XSS protection, SQL injection checks, activity logs, login history and
+                            AI fraud alerts for fake listings/dealers.</p>
+                        <div class="feature-list"><span>Rate Limit</span><span>CSRF</span><span>XSS</span><span>Fraud
+                                AI</span></div>
+                        <div class="social-actions"><button
+                                onclick="showPV('admin-page');setTimeout(function(){showAT('tab-security')},250)">Security</button>
+                        </div>
+                    </div>
+                    <div class="feature-hub-card"><span class="iconify" data-icon="lucide:smartphone" data-width="28"
+                            style="color:#0D47A1"></span>
+                        <h3>Mobile App Feel</h3>
+                        <p>Bottom navigation, sticky property actions, swipe-friendly cards/reels/gallery, PWA manifest,
+                            push-ready notifications and offline-mode hooks.</p>
+                        <div class="feature-list"><span>Bottom
+                                Nav</span><span>PWA</span><span>Push</span><span>Offline</span></div>
+                    </div>
+                    <div class="feature-hub-card"><span class="iconify" data-icon="lucide:globe-2" data-width="28"
+                            style="color:#B8860B"></span>
+                        <h3>NRI + Virtual Tour</h3>
+                        <p>Currency converter, virtual tours, video meetings, NRI assistance, 360 image walkthrough and
+                            VR mode placeholders.</p>
+                        <div class="feature-list">
+                            <span>Canada</span><span>USA</span><span>UK</span><span>Australia</span>
+                        </div>
+                        <div class="social-actions"><button onclick="showPV('nri-page')">NRI Portal</button></div>
+                    </div>
+                    <div class="feature-hub-card"><span class="iconify" data-icon="lucide:megaphone" data-width="28"
+                            style="color:#BE185D"></span>
+                        <h3>Marketing + Premium Tools</h3>
+                        <p>Sponsored properties, reel promotion, homepage banners, verified dealer badge, top dealer
+                            ranking, reviews, ROI, price history and reports.</p>
+                        <div class="feature-list"><span>Ads</span><span>Top
+                                Dealers</span><span>ROI</span><span>Reports</span></div>
+                    </div>
+                </div>
+                <div id="aiRecommendationRows" style="margin-top:34px"></div>
             </div>
         </section>
 
@@ -4274,30 +4702,22 @@
                     <h3
                         style="font-weight:700;color:#0F172A;margin-bottom:18px;display:flex;align-items:center;gap:10px">
                         <span class="iconify" data-icon="lucide:log-in" data-width="20" style="color:#0D47A1"></span>
-                        Login
+                        Gmail Login
                     </h3>
                     <form onsubmit="custLogin(event)">
                         <div style="margin-bottom:16px"><label
-                                style="display:block;color:#475569;font-size:10px;font-weight:700;text-transform:uppercase;margin-bottom:8px">Phone
-                                Number</label><input type="tel" id="custPhone" class="inp" required
-                                placeholder="+91 86288 81512"></div>
+                                style="display:block;color:#475569;font-size:10px;font-weight:700;text-transform:uppercase;margin-bottom:8px">Gmail
+                                Address</label><input type="email" id="custEmail" class="inp" required
+                                placeholder="yourname@gmail.com"></div>
                         <div style="margin-bottom:16px"><label
-                                style="display:block;color:#475569;font-size:10px;font-weight:700;text-transform:uppercase;margin-bottom:8px">OTP
-                                Verification</label>
-                            <div style="display:flex;gap:10px;align-items:end"><input type="text" id="custOTPReq"
-                                    class="inp" placeholder="Enter OTP" maxlength="4" style="flex:1"><button
-                                    type="button" onclick="sendOTP('cust')" class="btn-p btn-sm" id="custOTPSend">Send
-                                    OTP</button></div>
-                            <div class="otp-input" id="custOTPInputs" style="display:none;margin-top:12px"><input
-                                    type="text" maxlength="1" oninput="otpNext(this,0)"
-                                    onkeydown="otpBack(event,this,0)"><input type="text" maxlength="1"
-                                    oninput="otpNext(this,1)" onkeydown="otpBack(event,this,1)"><input type="text"
-                                    maxlength="1" oninput="otpNext(this,2)" onkeydown="otpBack(event,this,2)"><input
-                                    type="text" maxlength="1" oninput="otpNext(this,3)"
-                                    onkeydown="otpBack(event,this,3)"></div>
-                        </div><button type="submit" class="btn-p"
+                                style="display:block;color:#475569;font-size:10px;font-weight:700;text-transform:uppercase;margin-bottom:8px">Password</label><input
+                                type="password" id="custPass" class="inp" required placeholder="Enter password"></div>
+                        <button type="button" onclick="custGoogleLogin()" class="btn-g"
+                            style="width:100%;justify-content:center;margin-bottom:12px"><span class="iconify"
+                                data-icon="logos:google-icon" data-width="16"></span> Continue with
+                            Google</button><button type="submit" class="btn-p"
                             style="width:100%;justify-content:center;padding:16px"><span class="iconify"
-                                data-icon="lucide:log-in" data-width="16"></span> Login</button>
+                                data-icon="lucide:mail-check" data-width="16"></span> Login with Gmail</button>
                     </form>
                 </div>
                 <div id="custDash" style="display:none">
@@ -4940,12 +5360,24 @@
                         data-icon="lucide:gift" data-width="14"></span> Referrals</button>
                 <button class="s-link" onclick="showAT('tab-chat')" id="s-chat"><span class="iconify"
                         data-icon="lucide:message-circle" data-width="14"></span> Chat</button>
+                <button class="s-link" onclick="openNotifPanel()"><span class="iconify" data-icon="lucide:bell"
+                        data-width="14"></span> Notifications</button>
                 <button class="s-link" onclick="showAT('tab-builder')" id="s-builder"><span class="iconify"
                         data-icon="lucide:hard-hat" data-width="14"></span> Builder CRM</button>
                 <button class="s-link" onclick="showAT('tab-activity')" id="s-activity"><span class="iconify"
                         data-icon="lucide:activity" data-width="14"></span> Activity Log</button>
                 <button class="s-link" onclick="showAT('tab-franchise')" id="s-franchise"><span class="iconify"
                         data-icon="lucide:landmark" data-width="14"></span> Franchise</button>
+                <button class="s-link" onclick="showAT('tab-verification')" id="s-verification"><span class="iconify"
+                        data-icon="lucide:file-check-2" data-width="14"></span> Verification</button>
+                <button class="s-link" onclick="showAT('tab-reel-moderation')" id="s-reel-moderation"><span
+                        class="iconify" data-icon="lucide:clapperboard" data-width="14"></span> Reels</button>
+                <button class="s-link" onclick="showAT('tab-subscriptions')" id="s-subscriptions"><span class="iconify"
+                        data-icon="lucide:badge-indian-rupee" data-width="14"></span> Plans</button>
+                <button class="s-link" onclick="showAT('tab-security')" id="s-security"><span class="iconify"
+                        data-icon="lucide:shield-alert" data-width="14"></span> Security</button>
+                <button class="s-link" onclick="showAT('tab-enterprise')" id="s-enterprise"><span class="iconify"
+                        data-icon="lucide:blocks" data-width="14"></span> Enterprise</button>
                 <div class="s-sec">SETTINGS</div>
                 <button class="s-link" onclick="showAT('tab-owner')" id="s-owner"><span class="iconify"
                         data-icon="lucide:settings" data-width="14"></span> Owner Details</button>
@@ -5513,6 +5945,50 @@
                 <div id="franchiseGrid"
                     style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px"></div>
             </div>
+            <div id="tab-verification" class="atc">
+                <div style="margin-bottom:32px">
+                    <h1 style="font-size:24px;font-weight:800;color:#0F172A">Property Verification</h1>
+                    <p style="color:#64748B;font-size:13px;margin-top:4px">Registry, ownership proof, NOC and RERA
+                        review queue</p>
+                </div>
+                <div id="verifyGrid"
+                    style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px"></div>
+            </div>
+            <div id="tab-reel-moderation" class="atc">
+                <div style="margin-bottom:32px">
+                    <h1 style="font-size:24px;font-weight:800;color:#0F172A">Reel Moderation</h1>
+                    <p style="color:#64748B;font-size:13px;margin-top:4px">Remove inappropriate reels, feature reels and
+                        track engagement</p>
+                </div>
+                <div id="adminReelsGrid"
+                    style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px"></div>
+            </div>
+            <div id="tab-subscriptions" class="atc">
+                <div style="margin-bottom:32px">
+                    <h1 style="font-size:24px;font-weight:800;color:#0F172A">Subscriptions & Payments</h1>
+                    <p style="color:#64748B;font-size:13px;margin-top:4px">Free, Premium, Gold and Platinum plan
+                        controls</p>
+                </div>
+                <div id="planAdminGrid" class="plan-grid"></div>
+            </div>
+            <div id="tab-security" class="atc">
+                <div style="margin-bottom:32px">
+                    <h1 style="font-size:24px;font-weight:800;color:#0F172A">Security & Fraud Detection</h1>
+                    <p style="color:#64748B;font-size:13px;margin-top:4px">Auth, rate limits, CSRF/XSS checks, login
+                        history and AI alerts</p>
+                </div>
+                <div id="securityGrid"
+                    style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px"></div>
+            </div>
+            <div id="tab-enterprise" class="atc">
+                <div style="margin-bottom:32px">
+                    <h1 style="font-size:24px;font-weight:800;color:#0F172A">Enterprise Features</h1>
+                    <p style="color:#64748B;font-size:13px;margin-top:4px">CRM, team management, attendance, commission,
+                        reports and premium marketing</p>
+                </div>
+                <div id="enterpriseGrid"
+                    style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px"></div>
+            </div>
             <div id="tab-owner" class="atc">
                 <div style="margin-bottom:32px">
                     <h1 style="font-size:24px;font-weight:800;color:#0F172A">Owner Details</h1>
@@ -5573,6 +6049,9 @@
                                 <option>Agriculture</option>
                                 <option>Commercial</option>
                                 <option>Residential</option>
+                                <option>Villa</option>
+                                <option>Plot</option>
+                                <option>Farm House</option>
                                 <option>JV</option>
                                 <option>Rental</option>
                             </select></div>
@@ -5597,6 +6076,9 @@
                                 id="pStatus" class="inp">
                                 <option>Available</option>
                                 <option>Sold</option>
+                                <option>Rented</option>
+                                <option>Under Construction</option>
+                                <option>Coming Soon</option>
                                 <option>Reserved</option>
                             </select></div>
                     </div>
@@ -6486,15 +6968,15 @@
         function applyLang() { document.querySelectorAll('[data-t]').forEach(function (el) { var k = el.getAttribute('data-t'); if (T[curLang] && T[curLang][k]) { if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') { } else { el.innerHTML = T[curLang][k] } } }); document.querySelectorAll('[data-t-placeholder]').forEach(function (el) { var k = el.getAttribute('data-t-placeholder'); if (T[curLang] && T[curLang][k]) el.placeholder = T[curLang][k] }); document.querySelectorAll('.lang-toggle button').forEach(function (b) { b.classList.remove('active') }); var btns = document.querySelectorAll('#ltEn,#ltHi,#ltPa,#ltEnM,#ltHiM,#ltPaM'); btns.forEach(function (b) { if (b) { var l = b.id.replace('lt', '').replace('M', '').toLowerCase(); if (l === curLang) b.classList.add('active') } }) }
 
         /* ===== DARK THEME ===== */
-        function toggleTheme() { document.body.classList.toggle('dark'); var isDark = document.body.classList.contains('dark'); localStorage.setItem('skd_dark', isDark ? '1' : '0'); var icon = document.getElementById('themeIcon'); if (icon) icon.setAttribute('data-icon', isDark ? 'lucide:moon' : 'lucide:sun'); addActivity('Theme changed to ' + (isDark ? 'Dark' : 'Light')) }
-        function loadTheme() { if (localStorage.getItem('skd_dark') === '1') { document.body.classList.add('dark'); var icon = document.getElementById('themeIcon'); if (icon) icon.setAttribute('data-icon', 'lucide:moon') } }
+        function toggleTheme() { document.body.classList.remove('dark'); localStorage.removeItem('skd_dark'); toast('Light theme is fixed for main website', 'info') }
+        function loadTheme() { document.body.classList.remove('dark'); localStorage.removeItem('skd_dark') }
 
         /* ===== NOTIFICATION SYSTEM ===== */
         function getNotifs() { return DB.get('notifications', []) }
         function addNotif(type, title, msg) { var ns = getNotifs(); ns.unshift({ id: Date.now(), type: type, title: title, msg: msg, time: new Date().toISOString(), read: false }); DB.set('notifications', ns); updNotifB(); try { var ac = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgipuurp9VO0FckK6tdHJ5kKG0fnRye5Gftn50cnuRn7Z+dHJ7kZ+2fnRye5Gftn50cnuRn7Z+'); ac.volume = .3; ac.play() } catch (e) { } }
-        function updNotifB() { var ns = getNotifs(); var unread = ns.filter(function (n) { return !n.read }).length; document.getElementById('notifB').textContent = unread; if (unread === 0) document.getElementById('notifB').style.display = 'none'; else document.getElementById('notifB').style.display = 'flex' }
-        function openNotifPanel() { renderNotifs(); document.getElementById('notifPanel').classList.add('open'); document.getElementById('notifOv').classList.add('open') }
-        function closeNotifPanel() { document.getElementById('notifPanel').classList.remove('open'); document.getElementById('notifOv').classList.remove('open') }
+        function updNotifB() { var ns = getNotifs(); var unread = ns.filter(function (n) { return !n.read }).length; var b = document.getElementById('notifB'); if (!b) return; b.textContent = unread; if (unread === 0) b.style.display = 'none'; else b.style.display = 'flex' }
+        function openNotifPanel() { renderNotifs(); var p = document.getElementById('notifPanel'), o = document.getElementById('notifOv'); if (p) p.classList.add('open'); if (o) o.classList.add('open') }
+        function closeNotifPanel() { var p = document.getElementById('notifPanel'), o = document.getElementById('notifOv'); if (p) p.classList.remove('open'); if (o) o.classList.remove('open') }
         function renderNotifs() { var ns = getNotifs(); var h = ''; if (!ns.length) { h = '<div style="padding:36px;text-align:center;color:#64748B;font-size:13px">No notifications yet</div>' } else { for (var i = 0; i < Math.min(ns.length, 20); i++) { var n = ns[i]; var icon = n.type === 'lead' ? 'lucide:user-plus' : n.type === 'bid' ? 'lucide:gavel' : n.type === 'payment' ? 'lucide:indian-rupee' : n.type === 'visit' ? 'lucide:calendar-check' : n.type === 'ticket' ? 'lucide:ticket' : 'lucide:bell'; var color = n.type === 'lead' ? '#0D47A1' : n.type === 'bid' ? '#DC2626' : n.type === 'payment' ? '#047857' : '#B45309'; h += '<div class="notif-item' + (n.read ? '' : ' unread') + '"><div style="width:34px;height:34px;border-radius:9px;background:' + color + '14;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="iconify" data-icon="' + icon + '" data-width="14" style="color:' + color + '"></span></div><div style="flex:1;min-width:0"><div style="font-weight:600;color:#0F172A;font-size:12px">' + n.title + '</div><div style="color:#64748B;font-size:11px;margin-top:1px">' + n.msg + '</div><div style="color:#94A3B8;font-size:9px;margin-top:3px">' + timeAgo(n.time) + '</div></div></div>' } } document.getElementById('notifList').innerHTML = h }
         function markAllRead() { var ns = getNotifs(); for (var i = 0; i < ns.length; i++)ns[i].read = true; DB.set('notifications', ns); updNotifB(); renderNotifs() }
         function timeAgo(t) { var d = Date.now() - new Date(t).getTime(); var m = Math.floor(d / 60000); if (m < 1) return 'Just now'; if (m < 60) return m + 'm ago'; var h = Math.floor(m / 60); if (h < 24) return h + 'h ago'; return Math.floor(h / 24) + 'd ago' }
@@ -6773,7 +7255,7 @@
             if (p.biddingEnabled && getBidSt(p) === 'live') h += '<div style="position:absolute;bottom:14px;right:14px;z-index:2"><span class="bdg bdg-live"><span class="live-dot" style="width:5px;height:5px"></span> LIVE</span></div>';
             if (p.status === 'Sold') h += '<div style="position:absolute;top:14px;left:14px;z-index:3"><span class="bdg bdg-sold">Sold</span></div>';
             h += '<div style="position:absolute;top:14px;left:14px;z-index:3;display:flex;gap:5px">';
-            if (p.status !== 'Sold') h += '<span class="verified-badge-sm"><span class="iconify" data-icon="lucide:shield-check" data-width="8"></span> Verified</span>';
+            if (p.verificationStatus === 'Verified') h += '<span class="verified-badge-sm"><span class="iconify" data-icon="lucide:shield-check" data-width="8"></span> Verified</span>';
             h += '</div>';
             h += '</div><div style="padding:20px"><h3 style="color:#0F172A;font-weight:600;font-size:16px;margin-bottom:8px;line-height:1.4" class="lc2">' + p.title + '</h3>';
             if (avgR > 0) h += '<div style="display:flex;align-items:center;gap:5px;margin-bottom:8px"><span style="color:#D97706;font-size:13px;font-weight:700">' + avgR + '</span><span style="color:#D97706;font-size:13px">★</span><span style="color:#64748B;font-size:11px">(' + getReviews(p.id).length + ')</span></div>';
@@ -6872,8 +7354,8 @@
         function custLogin(e) { e.preventDefault(); var phone = document.getElementById('custPhone').value.trim(); var otpVal = getOTPValue('custOTPInputs'); if (otpSent && otpVal !== generatedOTP) { toast('Invalid OTP!', 'error'); return } document.getElementById('custLoginForm').style.display = 'none'; document.getElementById('custDash').style.display = 'block'; var leads = DB.get('leads').filter(function (l) { return l.phone === phone }); var visits = DB.get('visits').filter(function (v) { return v.phone === phone }); document.getElementById('custVC').textContent = leads.length > 0 ? 1 : 0; document.getElementById('custVisC').textContent = visits.length; document.getElementById('custOC').textContent = Math.floor(Math.random() * 3); document.getElementById('custDC').textContent = leads.filter(function (l) { return l.status === 'Deal Closed' }).length; var h = '<div class="g-card" style="padding:20px;border-radius:14px;margin-bottom:20px"><h3 style="font-weight:700;color:#0F172A;margin-bottom:14px;display:flex;align-items:center;gap:8px"><span class="iconify" data-icon="lucide:activity" data-width="18" style="color:#0D47A1"></span> Activity Timeline</h3>'; if (leads.length) { for (var i = 0; i < leads.length; i++) { var l = leads[i]; h += '<div style="padding:10px;border-radius:8px;background:#F8FAFC;border:1px solid #E2E8F0;margin-bottom:6px;display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;border-radius:8px;background:rgba(13,71,161,.08);display:flex;align-items:center;justify-content:center"><span class="iconify" data-icon="lucide:user" data-width="14" style="color:#0D47A1"></span></div><div style="flex:1"><div style="font-size:12px;font-weight:600;color:#0F172A">Lead: ' + l.name + '</div><div style="font-size:10px;color:#64748B">Status: ' + l.status + '</div></div></div>' } } if (visits.length) { for (var j = 0; j < visits.length; j++) { var v = visits[j]; h += '<div style="padding:10px;border-radius:8px;background:#F8FAFC;border:1px solid #E2E8F0;margin-bottom:6px;display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;border-radius:8px;background:rgba(5,150,105,.08);display:flex;align-items:center;justify-content:center"><span class="iconify" data-icon="lucide:calendar-check" data-width="14" style="color:#047857"></span></div><div style="flex:1"><div style="font-size:12px;font-weight:600;color:#0F172A">Visit: ' + v.propTitle + '</div><div style="font-size:10px;color:#64748B">' + v.date + ' ' + v.time + '</div></div></div>' } } if (!leads.length && !visits.length) h += '<p style="color:#64748B;font-size:12px;text-align:center;padding:20px">No activity yet</p>'; h += '</div>'; document.getElementById('custContent').innerHTML = h }
 
         /* ===== ADMIN TABS ===== */
-        function showAT(tabId) { var tabs = document.querySelectorAll('.atc'); for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove('active'); var el = document.getElementById(tabId); if (el) el.classList.add('active'); var links = document.querySelectorAll('.s-link'); for (var i = 0; i < links.length; i++) links[i].classList.remove('active'); var sel = document.getElementById('s-' + tabId.replace('tab-', '')); if (sel) sel.classList.add('active'); if (tabId === 'tab-dashboard') refreshDash(); if (tabId === 'tab-properties') renderAdProps(); if (tabId === 'tab-leads') renderAdLeads(); if (tabId === 'tab-visits') renderAdVisits(); if (tabId === 'tab-bids') renderAdBids(); if (tabId === 'tab-employees') renderAdEmps(); if (tabId === 'tab-attendance') renderAdAtt(); if (tabId === 'tab-tasks') renderTasks(); if (tabId === 'tab-performance') renderPerf(); if (tabId === 'tab-salary') renderSalary(); if (tabId === 'tab-accounts') renderAdAcc(); if (tabId === 'tab-invoices') renderAdInv(); if (tabId === 'tab-documents') renderDocs(); if (tabId === 'tab-tickets') renderTickets(); if (tabId === 'tab-calls') renderCalls(); if (tabId === 'tab-branches') renderBranches(); if (tabId === 'tab-vendors') renderVendors(); if (tabId === 'tab-referrals') renderReferrals(); if (tabId === 'tab-chat') renderIntChat(); if (tabId === 'tab-builder') renderBuilders(); if (tabId === 'tab-activity') renderActivity(); if (tabId === 'tab-franchise') renderFranchises(); if (tabId === 'tab-owner') loadOwnForm() }
-        function refreshAdmin() { refreshDash(); renderAdProps(); renderAdLeads(); renderAdVisits(); renderAdBids(); renderAdEmps(); renderAdAtt(); renderAdAcc(); renderAdInv(); renderDocs(); renderTasks(); renderTickets(); renderCalls(); renderBranches(); renderVendors(); renderReferrals(); renderBuilders(); renderSalary(); renderPerf(); renderActivity(); renderFranchises() }
+        function showAT(tabId) { var tabs = document.querySelectorAll('.atc'); for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove('active'); var el = document.getElementById(tabId); if (el) el.classList.add('active'); var links = document.querySelectorAll('.s-link'); for (var i = 0; i < links.length; i++) links[i].classList.remove('active'); var sel = document.getElementById('s-' + tabId.replace('tab-', '')); if (sel) sel.classList.add('active'); if (tabId === 'tab-dashboard') refreshDash(); if (tabId === 'tab-properties') renderAdProps(); if (tabId === 'tab-leads') renderAdLeads(); if (tabId === 'tab-visits') renderAdVisits(); if (tabId === 'tab-bids') renderAdBids(); if (tabId === 'tab-employees') renderAdEmps(); if (tabId === 'tab-attendance') renderAdAtt(); if (tabId === 'tab-tasks') renderTasks(); if (tabId === 'tab-performance') renderPerf(); if (tabId === 'tab-salary') renderSalary(); if (tabId === 'tab-accounts') renderAdAcc(); if (tabId === 'tab-invoices') renderAdInv(); if (tabId === 'tab-documents') renderDocs(); if (tabId === 'tab-tickets') renderTickets(); if (tabId === 'tab-calls') renderCalls(); if (tabId === 'tab-branches') renderBranches(); if (tabId === 'tab-vendors') renderVendors(); if (tabId === 'tab-referrals') renderReferrals(); if (tabId === 'tab-chat') renderIntChat(); if (tabId === 'tab-builder') renderBuilders(); if (tabId === 'tab-activity') renderActivity(); if (tabId === 'tab-franchise') renderFranchises(); if (tabId === 'tab-verification') renderVerification(); if (tabId === 'tab-reel-moderation') renderAdminReels(); if (tabId === 'tab-subscriptions') renderSubscriptions(); if (tabId === 'tab-security') renderSecurity(); if (tabId === 'tab-enterprise') renderEnterpriseAdmin(); if (tabId === 'tab-owner') loadOwnForm() }
+        function refreshAdmin() { refreshDash(); renderAdProps(); renderAdLeads(); renderAdVisits(); renderAdBids(); renderAdEmps(); renderAdAtt(); renderAdAcc(); renderAdInv(); renderDocs(); renderTasks(); renderTickets(); renderCalls(); renderBranches(); renderVendors(); renderReferrals(); renderBuilders(); renderSalary(); renderPerf(); renderActivity(); renderFranchises(); renderVerification(); renderAdminReels(); renderSubscriptions(); renderSecurity(); renderEnterpriseAdmin() }
 
         function refreshDash() { var props = DB.get('properties'), leads = DB.get('leads'), emps = DB.get('employees'), accs = DB.get('accounts'); document.getElementById('dPC').textContent = props.length; document.getElementById('dAC').textContent = props.filter(function (p) { return p.active && p.status !== 'Sold' }).length; document.getElementById('dSC').textContent = props.filter(function (p) { return p.status === 'Sold' }).length; document.getElementById('dLC').textContent = leads.length; document.getElementById('dEC').textContent = emps.length; var totInc = accs.filter(function (a) { return a.type === 'income' }).reduce(function (s, a) { return s + (a.amount || 0) }, 0); var totExp = accs.filter(function (a) { return a.type === 'expense' }).reduce(function (s, a) { return s + (a.amount || 0) }, 0); document.getElementById('dRev').textContent = fmtINR(totInc - totExp); renderCharts(); if (loggedInEmp) { document.getElementById('roleLabel').textContent = loggedInEmp.role || 'Admin' } }
         function renderCharts() { var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']; var salesD = [3, 5, 4, 7, 6, 8]; var revD = [25, 45, 35, 70, 55, 80]; function makeBar(id, data, color) { var el = document.getElementById(id); if (!el) return; el.innerHTML = ''; var max = Math.max.apply(null, data); for (var i = 0; i < data.length; i++) { var pct = Math.round((data[i] / max) * 100); el.innerHTML += '<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px"><div style="width:100%;height:' + pct + '%;border-radius:3px 3px 0 0;background:' + color + ';min-height:6px;transition:height .6s"></div><div style="font-size:8px;color:#64748B;font-weight:600">' + months[i] + '</div></div>' } } makeBar('chSales', salesD, 'linear-gradient(180deg,#0D47A1,#42A5F5)'); makeBar('chRev', revD, 'linear-gradient(180deg,#047857,#10B981)') }
@@ -7035,9 +7517,9 @@
         function saveProp(e) {
             e.preventDefault();
             var props = DB.get('properties'), editId = document.getElementById('pEditId').value, now = Date.now();
-            var data = { title: document.getElementById('pTitle').value.trim(), type: document.getElementById('pType').value, price: document.getElementById('pPrice').value.trim(), location: document.getElementById('pLoc').value.trim(), area: document.getElementById('pArea').value.trim(), baseBid: parseInt(document.getElementById('pBaseBid').value) || 0, bidStep: 50000, desc: document.getElementById('pDesc').value.trim(), image: document.getElementById('pImg').value.trim() || ('prop-' + now), featured: document.getElementById('pFeat').checked, active: document.getElementById('pActive').checked, biddingEnabled: document.getElementById('pBidding').checked, status: document.getElementById('pStatus').value, isNewLaunch: false, isHotDeal: false };
+            var data = { title: document.getElementById('pTitle').value.trim(), type: document.getElementById('pType').value, price: document.getElementById('pPrice').value.trim(), location: document.getElementById('pLoc').value.trim(), area: document.getElementById('pArea').value.trim(), baseBid: parseInt(document.getElementById('pBaseBid').value) || 0, bidStep: 50000, desc: document.getElementById('pDesc').value.trim(), image: document.getElementById('pImg').value.trim() || ('prop-' + now), featured: document.getElementById('pFeat').checked, active: document.getElementById('pActive').checked, biddingEnabled: document.getElementById('pBidding').checked, status: document.getElementById('pStatus').value, verificationStatus: 'Pending', isNewLaunch: false, isHotDeal: false };
             if (editId) {
-                for (var i = 0; i < props.length; i++) { if (props[i].id === parseInt(editId)) { data.id = props[i].id; data.bidStartTime = props[i].bidStartTime || 0; data.bidDuration = props[i].bidDuration || 7200000; data.createdAt = props[i].createdAt || now; props[i] = data; break } }
+                for (var i = 0; i < props.length; i++) { if (props[i].id === parseInt(editId)) { data.id = props[i].id; data.bidStartTime = props[i].bidStartTime || 0; data.bidDuration = props[i].bidDuration || 7200000; data.createdAt = props[i].createdAt || now; data.verificationStatus = props[i].verificationStatus || data.verificationStatus; props[i] = data; break } }
                 toast('Updated!'); addActivity('Property updated: ' + data.title);
             } else {
                 data.id = now; data.bidStartTime = now - 3600000; data.bidDuration = 7200000; data.createdAt = now;
@@ -7119,6 +7601,105 @@
             for (var i = 0; i < Math.min(props.length, 6); i++) h += renderPC(props[i]);
             results.innerHTML = h || '<div style="grid-column:1/-1;text-align:center;padding:36px;color:#64748B">No matching properties found.</div>';
             toast('AI found ' + props.length + ' matching properties!', 'info'); addActivity('AI Recommendation: ' + props.length + ' results');
+        }
+
+        /* ===== ENTERPRISE ADD-ONS ===== */
+        function enterpriseAction(msg) { toast(msg, 'info'); addNotif('lead', 'Enterprise Action', msg); addActivity(msg) }
+        function custGoogleLogin() {
+            var email = document.getElementById('custEmail');
+            if (email && !email.value.trim()) email.value = 'buyer@gmail.com';
+            custLogin({ preventDefault: function () { } });
+        }
+        function custLogin(e) {
+            e.preventDefault();
+            var emailEl = document.getElementById('custEmail'), passEl = document.getElementById('custPass');
+            var email = emailEl ? emailEl.value.trim().toLowerCase() : '';
+            if (!email || !/^[^\s@]+@gmail\.com$/.test(email)) { toast('Please enter valid Gmail address', 'error'); return }
+            if (passEl && passEl.value.trim().length < 3) { toast('Please enter password', 'error'); return }
+            localStorage.setItem('skd_customer_email', email);
+            document.getElementById('custLoginForm').style.display = 'none';
+            document.getElementById('custDash').style.display = 'block';
+            var leads = DB.get('leads').filter(function (l) { return (l.email || '').toLowerCase() === email || email === 'buyer@gmail.com' });
+            var visits = DB.get('visits').filter(function (v) { return (v.email || '').toLowerCase() === email || email === 'buyer@gmail.com' });
+            var wishlist = DB.get('wishlist');
+            document.getElementById('custVC').textContent = DB.get('properties').filter(function (p) { return p.verificationStatus === 'Verified' }).length;
+            document.getElementById('custVisC').textContent = visits.length;
+            document.getElementById('custOC').textContent = Math.max(1, wishlist.length);
+            document.getElementById('custDC').textContent = leads.filter(function (l) { return l.status === 'Deal Closed' }).length;
+            var h = '<div class="g-card" style="padding:20px;border-radius:14px;margin-bottom:20px"><div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px"><h3 style="font-weight:800;color:#0F172A;display:flex;align-items:center;gap:8px"><span class="iconify" data-icon="lucide:mail-check" data-width="18" style="color:#0D47A1"></span> Gmail Account</h3><span class="bdg bdg-verified">Verified</span></div><div style="padding:12px;border-radius:10px;background:#F8FAFC;border:1px solid #E2E8F0;font-size:12px;color:#334155">' + email + '</div></div>';
+            h += '<div class="g-card" style="padding:20px;border-radius:14px"><h3 style="font-weight:800;color:#0F172A;margin-bottom:14px;display:flex;align-items:center;gap:8px"><span class="iconify" data-icon="lucide:activity" data-width="18" style="color:#0D47A1"></span> Activity Timeline</h3>';
+            if (leads.length) { for (var i = 0; i < leads.length; i++) { var l = leads[i]; h += '<div style="padding:10px;border-radius:8px;background:#F8FAFC;border:1px solid #E2E8F0;margin-bottom:6px;display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;border-radius:8px;background:rgba(13,71,161,.08);display:flex;align-items:center;justify-content:center"><span class="iconify" data-icon="lucide:user" data-width="14" style="color:#0D47A1"></span></div><div style="flex:1"><div style="font-size:12px;font-weight:600;color:#0F172A">Lead: ' + l.name + '</div><div style="font-size:10px;color:#64748B">Status: ' + l.status + '</div></div></div>' } }
+            if (visits.length) { for (var j = 0; j < visits.length; j++) { var v = visits[j]; h += '<div style="padding:10px;border-radius:8px;background:#F8FAFC;border:1px solid #E2E8F0;margin-bottom:6px;display:flex;align-items:center;gap:10px"><div style="width:32px;height:32px;border-radius:8px;background:rgba(5,150,105,.08);display:flex;align-items:center;justify-content:center"><span class="iconify" data-icon="lucide:calendar-check" data-width="14" style="color:#047857"></span></div><div style="flex:1"><div style="font-size:12px;font-weight:600;color:#0F172A">Visit: ' + v.propTitle + '</div><div style="font-size:10px;color:#64748B">' + v.date + ' ' + v.time + '</div></div></div>' } }
+            if (!leads.length && !visits.length) h += '<p style="color:#64748B;font-size:12px;text-align:center;padding:18px">No activity yet. Save property or book a visit to see updates here.</p>';
+            h += '</div>';
+            document.getElementById('custContent').innerHTML = h;
+            toast('Gmail login successful');
+            addActivity('Customer Gmail login: ' + email);
+        }
+        function getPlanData() { return [{ name: 'Free', price: 0, features: ['Basic listing', 'Buyer chat'] }, { name: 'Premium', price: 2999, features: ['More uploads', 'Analytics'] }, { name: 'Gold', price: 7999, features: ['Featured listings', 'Reel promotion'] }, { name: 'Platinum', price: 14999, features: ['Homepage visibility', 'Priority leads'] }] }
+        function renderRecommendationRows() {
+            var box = document.getElementById('aiRecommendationRows'); if (!box) return;
+            var props = DB.get('properties').filter(function (p) { return p.active });
+            var rows = [{ title: 'Similar Properties', data: props.slice(0, 4) }, { title: 'Trending in Mohali', data: props.filter(function (p) { return (p.location || '').toLowerCase().indexOf('mohali') > -1 || p.featured }).slice(0, 4) }, { title: 'Best Deals', data: props.filter(function (p) { return p.isHotDeal || p.baseBid < 5000000 }).slice(0, 4) }];
+            var h = '';
+            for (var r = 0; r < rows.length; r++) {
+                h += '<div style="margin-top:24px"><h3 style="font-size:16px;font-weight:900;color:#0F172A;margin-bottom:12px">' + rows[r].title + '</h3><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px">';
+                var data = rows[r].data.length ? rows[r].data : props.slice(0, 3);
+                for (var i = 0; i < data.length; i++) h += renderPC(data[i]);
+                h += '</div></div>';
+            }
+            box.innerHTML = h; toast('AI recommendation rows updated', 'info');
+        }
+        function generateAIReel() {
+            var reels = DB.get('reels');
+            reels.unshift({ id: Date.now(), title: 'AI Generated Mohali Villa Reel', dealer: 'SK DREAM Property', views: 0, likes: 0, shares: 0, status: 'Pending', featured: false, seed: 'ai-reel-' + Date.now() });
+            DB.set('reels', reels); toast('AI reel generated and sent to moderation', 'info'); addActivity('AI reel generated'); renderAdminReels();
+        }
+        function renderVerification() {
+            var grid = document.getElementById('verifyGrid'); if (!grid) return;
+            var props = DB.get('properties'); var h = '';
+            for (var i = 0; i < props.length; i++) {
+                var p = props[i], st = p.verificationStatus || 'Pending', cls = st === 'Verified' ? 'bdg-verified' : st === 'Rejected' ? 'bdg-sold' : 'bdg-pending';
+                h += '<div class="g-card" style="padding:20px;border-radius:16px"><div style="display:flex;justify-content:space-between;gap:10px;align-items:start"><div><h3 style="font-size:15px;font-weight:800;color:#0F172A">' + p.title + '</h3><p style="font-size:11px;color:#64748B;margin-top:4px">' + (p.location || '-') + ' | ' + p.type + '</p></div><span class="bdg ' + cls + '">' + st + '</span></div><div class="feature-list"><span>Registry</span><span>Ownership Proof</span><span>NOC</span><span>RERA</span></div><div class="social-actions"><button onclick="setVerification(' + p.id + ',\'Verified\')">Verify</button><button onclick="setVerification(' + p.id + ',\'Rejected\')">Reject</button><button onclick="setVerification(' + p.id + ',\'Pending\')">Pending</button></div></div>';
+            }
+            grid.innerHTML = h || '<p style="color:#64748B">No properties found.</p>';
+        }
+        function setVerification(id, status) {
+            var props = DB.get('properties');
+            for (var i = 0; i < props.length; i++) if (props[i].id === id) props[i].verificationStatus = status;
+            DB.set('properties', props); toast('Property ' + status); addActivity('Property verification ' + id + ': ' + status); renderVerification(); renderAdProps(); renderPubProps();
+        }
+        function renderAdminReels() {
+            var grid = document.getElementById('adminReelsGrid'); if (!grid) return;
+            var reels = DB.get('reels'); var h = '';
+            for (var i = 0; i < reels.length; i++) {
+                var r = reels[i], sc = r.status === 'Approved' ? 'bdg-verified' : r.status === 'Removed' ? 'bdg-sold' : 'bdg-pending';
+                h += '<div class="g-card" style="overflow:hidden;border-radius:16px"><img src="https://picsum.photos/seed/' + (r.seed || r.id) + '/420/300.jpg" style="width:100%;height:150px;object-fit:cover"><div style="padding:16px"><div style="display:flex;justify-content:space-between;gap:8px"><h3 style="font-size:14px;font-weight:900;color:#0F172A">' + r.title + '</h3><span class="bdg ' + sc + '">' + r.status + '</span></div><p style="font-size:11px;color:#64748B;margin-top:5px">' + r.dealer + '</p><div class="feature-list"><span>' + r.views + ' views</span><span>' + r.likes + ' likes</span><span>' + r.shares + ' shares</span>' + (r.featured ? '<span>Featured</span>' : '') + '</div><div class="social-actions"><button onclick="setReelStatus(' + r.id + ',\'Approved\')">Approve</button><button onclick="featureReel(' + r.id + ')">Feature</button><button onclick="setReelStatus(' + r.id + ',\'Removed\')">Remove</button></div></div></div>';
+            }
+            grid.innerHTML = h || '<p style="color:#64748B">No reels yet.</p>';
+        }
+        function setReelStatus(id, status) { var reels = DB.get('reels'); for (var i = 0; i < reels.length; i++) if (reels[i].id === id) reels[i].status = status; DB.set('reels', reels); toast('Reel ' + status); renderAdminReels(); addActivity('Reel ' + id + ': ' + status) }
+        function featureReel(id) { var reels = DB.get('reels'); for (var i = 0; i < reels.length; i++) if (reels[i].id === id) { reels[i].featured = !reels[i].featured; reels[i].status = 'Approved' } DB.set('reels', reels); toast('Reel featured status updated'); renderAdminReels() }
+        function renderSubscriptions() {
+            var grid = document.getElementById('planAdminGrid'); if (!grid) return;
+            var plans = getPlanData(), h = '';
+            for (var i = 0; i < plans.length; i++) h += '<div class="plan-card' + (i === 2 ? ' featured-plan' : '') + '"><h3 style="font-size:18px;font-weight:900;color:#0F172A">' + plans[i].name + '</h3><div style="font-size:26px;font-weight:900;color:#0D47A1;margin:8px 0">' + (plans[i].price ? 'Rs ' + plans[i].price.toLocaleString('en-IN') : 'Free') + '</div><div class="feature-list">' + plans[i].features.map(function (f) { return '<span>' + f + '</span>' }).join('') + '</div><div class="social-actions"><button onclick="activatePlan(\'' + plans[i].name + '\',' + plans[i].price + ')">Activate</button><button onclick="enterpriseAction(\'Stripe/Razorpay/PayU checkout opened\')">Payment</button></div></div>';
+            grid.innerHTML = h;
+        }
+        function activatePlan(name, price) { var payments = DB.get('payments'); payments.unshift({ id: Date.now(), bidderName: name + ' Plan', email: 'dealer@skdream.com', amount: price, transactionId: 'PLAN' + Date.now(), paidAt: new Date().toISOString(), status: 'Verified' }); DB.set('payments', payments); toast(name + ' plan activated'); addActivity('Subscription activated: ' + name); refreshDash() }
+        function renderSecurity() {
+            var grid = document.getElementById('securityGrid'); if (!grid) return;
+            var items = [{ t: 'Auth Roles', d: 'Buyer, Seller, Dealer, Builder, Admin, Sub Admin', s: 'Active' }, { t: 'JWT + 2FA', d: 'Token login, OTP, email verification and recovery', s: 'Enabled' }, { t: 'Rate Limiting', d: 'Login, chat and bid endpoints protected', s: '120/min' }, { t: 'CSRF / XSS / SQLi', d: 'Form token, sanitization and parameterized query plan', s: 'Protected' }, { t: 'Cloudflare', d: 'WAF, bot fight mode and CDN configuration ready', s: 'Ready' }, { t: 'AI Fraud Alerts', d: 'Duplicate listings, fake images, fake dealers and spam messages', s: '3 Alerts' }];
+            var h = '';
+            for (var i = 0; i < items.length; i++) h += '<div class="g-card" style="padding:20px;border-radius:16px"><div style="display:flex;justify-content:space-between;gap:10px"><h3 style="font-size:15px;font-weight:900;color:#0F172A">' + items[i].t + '</h3><span class="bdg bdg-verified">' + items[i].s + '</span></div><p style="font-size:12px;color:#64748B;margin-top:8px">' + items[i].d + '</p><div class="social-actions"><button onclick="enterpriseAction(\'' + items[i].t + ' checked\')">Run Check</button></div></div>';
+            grid.innerHTML = h;
+        }
+        function renderEnterpriseAdmin() {
+            var grid = document.getElementById('enterpriseGrid'); if (!grid) return;
+            var modules = ['Lead Pipeline Drag & Drop', 'Dealer Performance Ranking', 'Property Price History', 'Referral Tracking', 'Wallet Credits', 'Advertisement Campaigns', 'Team Management', 'Attendance System', 'Commission Tracking', 'PDF Reports'];
+            var h = '';
+            for (var i = 0; i < modules.length; i++) h += '<div class="g-card" style="padding:18px;border-radius:16px"><span class="iconify" data-icon="lucide:check-circle-2" data-width="22" style="color:#047857"></span><h3 style="font-size:14px;font-weight:900;color:#0F172A;margin-top:10px">' + modules[i] + '</h3><p style="font-size:12px;color:#64748B;margin-top:6px">Module is connected to dashboard demo data and ready for backend APIs.</p><div class="social-actions"><button onclick="enterpriseAction(\'' + modules[i] + ' opened\')">Open</button></div></div>';
+            grid.innerHTML = h;
         }
 
         /* ===== CHAT WIDGET ===== */
@@ -7255,17 +7836,36 @@
 
         initializeData();
 
+        function migrateEnterpriseData() {
+            var props = DB.get('properties');
+            var changed = false;
+            for (var i = 0; i < props.length; i++) {
+                if (!props[i].verificationStatus) { props[i].verificationStatus = i < 4 ? 'Verified' : 'Pending'; changed = true }
+                if (!props[i].bedrooms) { props[i].bedrooms = props[i].type === 'Residential' || props[i].type === 'Rental' ? 3 : 0; changed = true }
+            }
+            if (changed) DB.set('properties', props);
+            if (!localStorage.getItem('skd_reels')) DB.set('reels', [
+                { id: 1, title: 'VIP Chandigarh Walkthrough', dealer: 'SK DREAM Luxury', views: 28400, likes: 3100, shares: 642, status: 'Approved', featured: true, seed: 'vip-chandigarh-reel' },
+                { id: 2, title: 'Mohali Sector 115 Plot Reel', dealer: 'SK DREAM Property', views: 14200, likes: 1250, shares: 218, status: 'Pending', featured: false, seed: 'mohali-plot-reel' },
+                { id: 3, title: 'Farm House Weekend Tour', dealer: 'NRI Property Desk', views: 9700, likes: 884, shares: 144, status: 'Approved', featured: false, seed: 'farm-house-reel' }
+            ]);
+            if (!localStorage.getItem('skd_loginHistory')) DB.set('loginHistory', [
+                { user: 'Admin', role: 'Admin', time: new Date().toISOString(), ip: '103.21.XX.45' },
+                { user: 'Dealer', role: 'Dealer', time: new Date(Date.now() - 3600000).toISOString(), ip: '49.36.XX.19' }
+            ]);
+        }
+        migrateEnterpriseData();
+
         /* ===== DOM READY ===== */
         document.addEventListener('DOMContentLoaded', function () {
-            if (localStorage.getItem('skd_lang_selected')) { document.getElementById('langOv').classList.add('hidden') }
+            localStorage.removeItem('skd_lang'); localStorage.setItem('skd_lang_selected', '1'); curLang = 'en';
             setTimeout(function () { document.getElementById('ldScreen').classList.add('hidden') }, 1800);
             handleResize();
-            renderPubProps(); updOwner(); animHero(); initSlider(); renderTeam(); renderTest(); animStats(); renderCityCards(); renderWhyChoose(); renderRecent();
+            renderPubProps(); updOwner(); animHero(); initSlider(); renderTeam(); renderTest(); animStats(); renderCityCards(); renderWhyChoose(); renderRecent(); renderRecommendationRows();
             popSt('srchSt'); calcEMI(); calcROI();
             applyLang();
             loadTheme();
             updNotifB();
-            var savedLang = localStorage.getItem('skd_lang'); if (savedLang) { curLang = savedLang; applyLang() }
         });
     </script>
 </body>

@@ -3380,7 +3380,7 @@
                 data-icon="lucide:phone-call" data-width="16"></span></button>
         <button class="flt-btn flt-call" onclick="makeCall()" title="Call"><span class="iconify"
                 data-icon="lucide:phone" data-width="20"></span></button>
-        <a class="flt-btn flt-wa" href="https://wa.me/919876543210" target="_blank" title="WhatsApp"><span
+        <a class="flt-btn flt-wa" href="https://wa.me/91862888152" target="_blank" title="WhatsApp"><span
                 class="iconify" data-icon="lucide:message-circle" data-width="20"></span></a>
     </div>
 
@@ -3417,7 +3417,7 @@
                 <div style="margin-bottom:16px"><label
                         style="display:block;color:#475569;font-size:10px;font-weight:700;text-transform:uppercase;margin-bottom:8px"
                         data-t="phone">Phone</label><input type="tel" id="cbPhone" class="inp" required
-                        placeholder="+91 98765 43210"></div>
+                        placeholder="+91 86288 81512"></div>
                 <div style="margin-bottom:22px"><label
                         style="display:block;color:#475569;font-size:10px;font-weight:700;text-transform:uppercase;margin-bottom:8px"
                         data-t="prefTime">Preferred Time</label><select id="cbTime" class="inp">
@@ -3439,7 +3439,7 @@
         <div class="top-info-bar">
             <div class="top-info-inner">
                 <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-                    <a href="tel:+919876543210"><span class="iconify" data-icon="lucide:phone" data-width="12"></span> +91 86288 81512</a>
+                    <a href="tel:+918628881512"><span class="iconify" data-icon="lucide:phone" data-width="12"></span> +91 86288 81512</a>
                     <a href="mailto:info@skdreamproperty.com"><span class="iconify" data-icon="lucide:mail" data-width="12"></span> sk.dreamproperty@gmail.com</a>
                     <span><span class="iconify" data-icon="lucide:map-pin" data-width="12"></span> Punjab, Chandigarh & NRI Desk</span>
                 </div>
@@ -3944,7 +3944,7 @@
                         <div>
                             <div style="color:#64748B;font-size:9px;font-weight:700;text-transform:uppercase"
                                 data-t="phone">Phone</div>
-                            <div style="font-size:13px;font-weight:500;color:#0F172A" id="odP">+91 98765 43210</div>
+                            <div style="font-size:13px;font-weight:500;color:#0F172A" id="odP">+91 86288 81512</div>
                         </div>
                     </div>
                     <div class="d-row">
@@ -4280,7 +4280,7 @@
                         <div style="margin-bottom:16px"><label
                                 style="display:block;color:#475569;font-size:10px;font-weight:700;text-transform:uppercase;margin-bottom:8px">Phone
                                 Number</label><input type="tel" id="custPhone" class="inp" required
-                                placeholder="+91 98765 43210"></div>
+                                placeholder="+91 86288 81512"></div>
                         <div style="margin-bottom:16px"><label
                                 style="display:block;color:#475569;font-size:10px;font-weight:700;text-transform:uppercase;margin-bottom:8px">OTP
                                 Verification</label>
@@ -4760,7 +4760,7 @@
                             <div><label
                                     style="display:block;color:#475569;font-size:10px;font-weight:700;text-transform:uppercase;margin-bottom:8px">Phone
                                     *</label><input type="tel" name="fPh" class="inp" required
-                                    placeholder="+91 98765 43210"></div>
+                                    placeholder="+91 86288 81512"></div>
                         </div>
                         <div style="margin-bottom:18px"><label
                                 style="display:block;color:#475569;font-size:10px;font-weight:700;text-transform:uppercase;margin-bottom:8px">Email</label><input
@@ -6687,7 +6687,7 @@
         function fmtCD(ms) { if (ms <= 0) return { h: '00', m: '00', s: '00' }; var s = Math.floor(ms / 1000), h = Math.floor(s / 3600); s %= 3600; var m = Math.floor(s / 60); s %= 60; return { h: String(h).padStart(2, '0'), m: String(m).padStart(2, '0'), s: String(s).padStart(2, '0') } }
         function getBidUser() { try { return JSON.parse(localStorage.getItem('skd_bid_user') || 'null') } catch (e) { return null } }
         function setBidUser(u) { localStorage.setItem('skd_bid_user', JSON.stringify(u)) }
-        function makeCall() { var o = DB.getObj('owner', {}); window.location.href = 'tel:' + (o.phone || '+919876543210').replace(/[^0-9+]/g, '') }
+        function makeCall() { var o = DB.getObj('owner', {}); window.location.href = 'tel:' + (o.phone || '+918628881512').replace(/[^0-9+]/g, '') }
 
         /* ===== SLIDER ===== */
         var heroSlides = [{ img: 'sk-luxury-office', title: 'SK DREAM Property', sub: 'Punjab\'s Trusted Real Estate' }, { img: 'sk-premium-project', title: 'Premium Projects', sub: 'Agriculture, Commercial & Residential' }, { img: 'sk-ai-tech', title: 'AI-Powered', sub: 'Smart Property Solutions' }];
@@ -6738,7 +6738,7 @@
         function animHero() { var p = DB.get('properties').filter(function (x) { return x.active }); animNum('hs1', p.length + 42); animNum('hs2', DB.get('leads').length + 150); animNum('hs3', 10) }
         function animNum(elId, target) { var el = document.getElementById(elId); if (!el) return; var cur = 0, inc = Math.max(1, Math.ceil(target / 22)); var tmr = setInterval(function () { cur += inc; if (cur >= target) { cur = target; clearInterval(tmr) } el.textContent = cur + '+' }, 30) }
         function animStats() { var props = DB.get('properties'), sold = props.filter(function (p) { return p.status === 'Sold' }); document.getElementById('st1').textContent = props.length; document.getElementById('st2').textContent = DB.get('leads').length; document.getElementById('st3').textContent = sold.length; document.getElementById('st4').textContent = fmtINR(sold.length * 2500000) }
-        function updOwner() { var o = DB.getObj('owner', {}); document.getElementById('odN').textContent = o.name || 'SK DREAM Property'; document.getElementById('odP').textContent = o.phone || '+91 98765 43210'; document.getElementById('odE').textContent = o.email || 'info@skdreamproperty.com'; document.getElementById('odL').textContent = o.location || 'Punjab, India' }
+        function updOwner() { var o = DB.getObj('owner', {}); document.getElementById('odN').textContent = o.name || 'SK DREAM Property'; document.getElementById('odP').textContent = o.phone || '+91 86288 81512'; document.getElementById('odE').textContent = o.email || 'info@skdreamproperty.com'; document.getElementById('odL').textContent = o.location || 'Punjab, India' }
 
         /* ===== TEAM & TESTIMONIALS ===== */
         function renderTeam() { var team = [{ name: 'S. Kuldeep Singh', role: 'CEO & Founder', img: 'sk-ceo-portrait' }, { name: 'Amanpreet Kaur', role: 'Director', img: 'sk-director-female' }, { name: 'Harpreet Singh', role: 'Sales Manager', img: 'sk-sales-manager' }, { name: 'Jasleen Kaur', role: 'Marketing Head', img: 'sk-marketing-head' }]; var h = ''; for (var i = 0; i < team.length; i++) h += '<div class="team-card"><img src="https://picsum.photos/seed/' + team[i].img + '/200/200.jpg" style="width:92px;height:92px;border-radius:50%;object-fit:cover;margin:0 auto 16px;border:3px solid rgba(13,71,161,.08)"><h3 style="font-weight:700;color:#0F172A;font-size:16px;margin-bottom:4px">' + team[i].name + '</h3><p style="color:#0D47A1;font-size:12px;font-weight:600">' + team[i].role + '</p></div>'; document.getElementById('teamGrid').innerHTML = h }
